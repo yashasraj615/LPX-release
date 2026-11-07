@@ -19,7 +19,7 @@
       "signatureType": "none",
       "developerIdSigned": false,
       "notarized": false,
-      "downloadUrl": "",
+      "downloadUrl": "https://github.com/yashasraj615/LPX-release/releases/download/untagged-c8a5cb417dac6bf99917/LPX-Setup.exe",
       "verification": "Fresh NSIS silent per-user install, ProductVersion 1.2.0, 15-second startup with verified non-elevated token, and silent uninstall passed. 75 Rust tests, 11 frontend tests, live discovery lab and real npm frontend/backend HTTP launch integration pass. Interactive browser/wizard UI, upgrade, shortcuts and clean-PC setup not exercised for 1.2.0."
     },
     "macos": {
@@ -38,7 +38,7 @@
       "signatureType": "ad-hoc",
       "developerIdSigned": false,
       "notarized": false,
-      "downloadUrl": "",
+      "downloadUrl": "https://github.com/yashasraj615/LPX-release/releases/download/untagged-c8a5cb417dac6bf99917/LPX.dmg",
       "verification": "Exact universal DMG verified/mounted read-only; app copied from image exercised on Apple Silicon macOS 26.5.1: default Chrome opened localhost:4329, folder scan inferred frontend/backend commands and dependency, Create and start reached Healthy 2/2, rescan unchanged and stop closed both services. 72 Rust tests, 11 frontend tests and live discovery lab pass. Intel runtime, downloaded Gatekeeper, notifications, login startup and Docker not exercised."
     }
   }
