@@ -8,8 +8,8 @@ is maintained privately. Download from [the latest release](https://github.com/y
 
 | Platform | Version | Installer | Size | Architectures |
 |---|---|---|---|---|
-| Windows 10/11 | 1.1.0 | EXE | 5,944,690 bytes | x64 |
-| macOS 11+ | 1.1.0 | DMG | 11,323,521 bytes | arm64, x86_64 |
+| Windows 10/11 | 1.2.0 | EXE | 5,971,672 bytes | x64 |
+| macOS 11+ | 1.2.0 | DMG | 11,401,871 bytes | arm64, x86_64 |
 
 Assets: LPX-Setup.exe, LPX.dmg, release.json and SHA256SUMS.txt. Binary assets live in GitHub
 Releases, outside normal Git history. Checksums are provided for integrity verification.

@@ -1,30 +1,30 @@
 {
   "schema": "lpx-public-release/1",
   "product": "LPX",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "releasedAt": "2026-11-07",
   "platforms": {
     "windows": {
       "available": true,
-      "version": "1.1.0",
+      "version": "1.2.0",
       "fileName": "LPX-Setup.exe",
       "fileType": "EXE",
       "architectures": [
         "x64"
       ],
       "minimumOs": "Windows 10 or Windows 11, 64-bit",
-      "sizeBytes": 5944690,
-      "sha256": "751fded7e47d33c18c7b792de7784f4848b0d5499166fff25ced409b4b442317",
+      "sizeBytes": 5971672,
+      "sha256": "ba96b9a5c6b8a998bf4b6f6afd6b192aa4e3b615c34e292ea446457c819f4b1c",
       "signed": false,
       "signatureType": "none",
       "developerIdSigned": false,
       "notarized": false,
-      "downloadUrl": "https://github.com/yashasraj615/LPX-release/releases/download/v1.1.0/LPX-Setup.exe",
-      "verification": "Previously install-tested on Windows 11; bytes and recorded checksum reverified on macOS. Windows was not rebuilt or runtime-tested in this session."
+      "downloadUrl": "",
+      "verification": "Fresh NSIS silent per-user install, ProductVersion 1.2.0, 15-second startup with verified non-elevated token, and silent uninstall passed. 75 Rust tests, 11 frontend tests, live discovery lab and real npm frontend/backend HTTP launch integration pass. Interactive browser/wizard UI, upgrade, shortcuts and clean-PC setup not exercised for 1.2.0."
     },
     "macos": {
       "available": true,
-      "version": "1.1.0",
+      "version": "1.2.0",
       "fileName": "LPX.dmg",
       "fileType": "DMG",
       "architectures": [
@@ -32,14 +32,14 @@
         "x86_64"
       ],
       "minimumOs": "macOS 11 Big Sur or later",
-      "sizeBytes": 11323521,
-      "sha256": "66cbff834378b641c6fea8b703186064ca3d7d2ac44dd20e2fa1204d68900b99",
+      "sizeBytes": 11401871,
+      "sha256": "de7b3f2a58a6cdf12f8c2cee79c618eca86488138240ec7a677b168a8057d13a",
       "signed": true,
       "signatureType": "ad-hoc",
       "developerIdSigned": false,
       "notarized": false,
-      "downloadUrl": "https://github.com/yashasraj615/LPX-release/releases/download/v1.1.0/LPX.dmg",
-      "verification": "Universal build; DMG verified and mounted read-only; Applications shortcut, icon and bundle metadata checked; copied app launched on Apple Silicon macOS 26.5.1; 66 Rust tests, live discovery lab and native navigation/hide/reopen checks passed. Intel runtime, internet-download Gatekeeper, notifications, login startup and Docker not exercised."
+      "downloadUrl": "",
+      "verification": "Exact universal DMG verified/mounted read-only; app copied from image exercised on Apple Silicon macOS 26.5.1: default Chrome opened localhost:4329, folder scan inferred frontend/backend commands and dependency, Create and start reached Healthy 2/2, rescan unchanged and stop closed both services. 72 Rust tests, 11 frontend tests and live discovery lab pass. Intel runtime, downloaded Gatekeeper, notifications, login startup and Docker not exercised."
     }
   }
 }

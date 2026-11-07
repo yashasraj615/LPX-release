@@ -1,54 +1,43 @@
-# LPX 1.1.0
+# LPX 1.2.0
 
-Published distribution preparation: 7 November 2026.
+- Fixed Open in browser rejecting valid HTTP/HTTPS URLs, including localhost:4329, on Windows
+  and macOS. Open uses the same URL as Copy URL and the system's default browser.
+- Improved Scan Folder detection for npm/pnpm/Yarn/Bun scripts, custom server script names,
+  workspace package-manager declarations, scriptless Node servers and Vite preview ports.
+- Frontend, backend and worker scripts sharing a package become separate components. Database
+  client libraries are not mistaken for database servers; Compose infrastructure stays identified.
+- Added Create and start, with preflight checks and the existing dependency-aware launch flow.
+- Improved Windows package-manager launching through Node, preserving literal arguments and
+  working folders containing spaces. Rescan keeps same-folder services separate and preserves
+  custom commands.
 
-LPX discovers local TCP/UDP listeners, identifies applications and owning processes, detects
-HTTP/HTTPS services, monitors health, keeps activity history, and groups development services
-into projects with folder scanning, launch profiles and dependency-aware start configurations.
-Everything stays local; no account, cloud or telemetry.
+Scanning does not install dependencies or execute project code. Starting a reviewed project runs
+its own scripts with the user's normal permissions. No cloud account, telemetry, elevated app or
+privileged helper was added.
 
-- Reliable Open Link states, retry/backoff, and health-aware service links.
-- Add running services to projects with relaunch analysis and launch preflight.
-- Dependency-wave, sequential and parallel stack start modes.
-- Platform permission explanations; Windows supports a one-shot UAC helper for selected stops.
-- First macOS universal DMG, sharing the same Tauri/Rust/React app as Windows, with native menus,
-  menu-bar extra, Dock/reopen support and macOS process control.
+Windows installers remain unsigned. macOS builds use an ad-hoc signature without Developer ID
+trust or Apple notarization. Installation verification and remaining runtime limits are recorded
+in the release metadata. Intel compilation does not establish Intel runtime verification.
 
-## Downloads
+## Verification and installation
 
-| Platform | Version | File | Bytes | Architectures |
-|---|---|---|---|---|
-| Windows 10/11 | 1.1.0 | LPX-Setup.exe | 5,944,690 | x64 |
-| macOS 11+ | 1.1.0 | LPX.dmg | 11,323,521 | arm64 + x86_64 (universal) |
+Both installers are newly built for 1.2.0. Previous 1.1.0 assets remain unchanged. Checksums are
+in release.json and SHA256SUMS.txt. MSI is retained locally as a build-only artifact.
 
-The existing Windows installer was reused. Its SHA-256 matches the previously tested build; no
-Windows rebuild was performed. The MSI is retained locally as a build-only artifact and is not
-the primary public download. Checksums are retained in release.json and SHA256SUMS.txt.
+Windows: run LPX-Setup.exe, per-user without administrator rights. Silent install, version,
+15-second startup with a verified standard-user token and silent uninstall passed on a hosted
+Windows runner. 75 Rust tests, 11 frontend tests, the live discovery lab and real npm frontend/
+backend HTTP launch integration passed. Interactive browser/wizard UI, upgrade/shortcuts,
+Windows 10, clean-PC WebView2 bootstrap, MSI installation and UAC consent remain unverified.
 
-## Installation and trust
+macOS: open LPX.dmg, drag LPX to Applications and eject. Universal DMG metadata, both architectures,
+icon, Applications shortcut and ad-hoc code integrity passed. The exact packaged app ran on
+Apple Silicon macOS 26.5.1: localhost:4329 opened in default Chrome; folder scan inferred frontend/
+backend scripts and dependency; Create and start reached Healthy 2/2; rescan and stop passed.
+72 Rust tests, 11 frontend tests and the live discovery lab passed. Intel/macOS 11 runtime and
+internet-downloaded Gatekeeper flow remain unverified. No Developer ID signature or notarization;
+Gatekeeper may block the download. For a verified official download, use Privacy & Security →
+Open Anyway if offered; do not disable Gatekeeper. Windows SmartScreen may warn.
 
-Windows: run LPX-Setup.exe; it installs for your user without administrator rights. The installer
-is unsigned, so SmartScreen may warn.
-
-macOS: open LPX.dmg and drag LPX to Applications, then eject the image. The app has an ad-hoc
-signature and hardened runtime, with code integrity verified. It has no Developer ID signature
-and is not notarized. Gatekeeper may block an internet download; only for a verified official
-download, use System Settings → Privacy & Security → Open Anyway if offered. Do not disable
-Gatekeeper. Unattended DMG packaging includes the app and Applications shortcut; Finder cosmetic
-icon positioning was skipped.
-
-## Verification and limits
-
-Mac: both architectures compiled; DMG checksum/mount, bundle version/identifier/minimum OS, icon,
-Applications shortcut and code integrity passed. A copy extracted from the image ran on Apple
-Silicon macOS 26.5.1. Verified 66 Rust unit tests, 10 UI tests, the real HTTP/TCP/UDP/IPv4/IPv6
-discovery lab and conflict detection, native keyboard navigation, About/version, permission
-text, and window hide/reopen.
-
-Windows: original release evidence records per-user install, upgrade, relaunch, shortcuts and
-uninstall on Windows 11. This session verified installer bytes/checksum on a Mac; it did not
-repeat Windows runtime tests.
-
-Unverified: Intel runtime, macOS 11 runtime, internet-downloaded Gatekeeper flow, macOS
-notification delivery and start-at-login, Docker with a running daemon, Windows 10, a second
-Windows PC, WebView2 bootstrap on a clean PC, MSI installation and the UAC consent prompt.
+Docker with a running daemon, notification delivery and login startup remain unverified.
+Scanning does not install dependencies: starting requires project dependencies and local runtimes.
