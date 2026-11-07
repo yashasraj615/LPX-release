@@ -1,0 +1,41 @@
+{
+  "schema": "lpx-public-release/1",
+  "product": "LPX",
+  "version": "1.1.0",
+  "releasedAt": "2026-11-07",
+  "platforms": {
+    "windows": {
+      "available": true,
+      "version": "1.1.0",
+      "fileName": "LPX-Setup.exe",
+      "fileType": "EXE",
+      "architectures": [
+        "x64"
+      ],
+      "minimumOs": "Windows 10 or Windows 11, 64-bit",
+      "sizeBytes": 5944690,
+      "sha256": "751fded7e47d33c18c7b792de7784f4848b0d5499166fff25ced409b4b442317",
+      "signed": false,
+      "notarized": false,
+      "downloadUrl": "",
+      "verification": "Previously install-tested on Windows 11; bytes and recorded checksum reverified on macOS. Windows was not rebuilt or runtime-tested in this session."
+    },
+    "macos": {
+      "available": true,
+      "version": "1.1.0",
+      "fileName": "LPX.dmg",
+      "fileType": "DMG",
+      "architectures": [
+        "arm64",
+        "x86_64"
+      ],
+      "minimumOs": "macOS 11 Big Sur or later",
+      "sizeBytes": 11323521,
+      "sha256": "66cbff834378b641c6fea8b703186064ca3d7d2ac44dd20e2fa1204d68900b99",
+      "signed": false,
+      "notarized": false,
+      "downloadUrl": "",
+      "verification": "Universal build; DMG verified and mounted read-only; Applications shortcut, icon and bundle metadata checked; copied app launched on Apple Silicon macOS 26.5.1; 66 Rust tests, live discovery lab and native navigation/hide/reopen checks passed. Intel runtime, internet-download Gatekeeper, notifications, login startup and Docker not exercised."
+    }
+  }
+}
